@@ -1,6 +1,6 @@
 import React from 'react'
-import hamburger from '../images/hamburger.svg'
-import cart from '../images/cart.svg'
+import hamburger from '../../images/hamburger.svg'
+import cart from '../../images/cart.svg'
 
 const Header = () => {
   return (

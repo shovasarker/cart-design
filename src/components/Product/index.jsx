@@ -1,10 +1,14 @@
 import React from 'react'
 import { FaArrowRight, FaStar, FaStarHalf } from 'react-icons/fa'
-import banner from '../images/banner.svg'
+import { ITEM_CARD_DATA } from '../../data'
+import banner from '../../images/banner.svg'
+import cart from '../../images/cart.svg'
+import ItemCard from '../Itemcard'
 const Product = () => {
   const stars = [FaStar, FaStar, FaStar, FaStar]
+  const itemCardDatas = ITEM_CARD_DATA
   return (
-    <div className='flex flex-col px-7 mt-8'>
+    <div className='flex flex-col px-7 mt-8 mb-20'>
       <div>
         <img src={banner} alt='banner' className='w-full object-cover' />
       </div>
@@ -33,12 +37,18 @@ const Product = () => {
           <FaArrowRight className='text-[8px]' />
         </a>
       </div>
-      <div className='flex items-center gap-6 text-[32px] leading-10  font-montserrat mt-9'>
+      <div className='flex items-center gap-6 text-[32px] leading-10  font-montserrat mt-9 mb-3'>
         <span className='text-white font-bold'>&#8377;899</span>
         <span className='line-through text-lightGray-300 font-medium '>
           &#8377;1299
         </span>
       </div>
+      {itemCardDatas.map(({ ...item }, i) => {
+        return <ItemCard key={i} {...item} />
+      })}
+      <button className='bg-lightBlue-800 w-full flex items-center justify-center gap-2 text-white text-[13px] py-4 mt-6'>
+        <img src={cart} alt='cart icon' className='h-4 w-3.5' /> ADD TO CART
+      </button>
     </div>
   )
 }
